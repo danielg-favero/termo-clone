@@ -12,6 +12,7 @@
     --input-filled-background: #312A2C;
     --input-selected-border: #4C4347;
     --input-correct-letter-position-background: #3AA394;
+    --input-blocked-background: #312A2C;
     --input-has-letter-background: #D3AD69;
 }
 
@@ -56,6 +57,10 @@ input:focus {
 .current-row {
     background-color: transparent;
     border: 6px solid var(--input-selected-border);
+}
+
+.blocked {
+    background-color: var(--input-blocked-background);
 }
 
 .has-letter {
