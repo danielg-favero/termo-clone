@@ -1,0 +1,93 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,900;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Termo</title>
+</head>
+
+<body>
+
+</body>
+    <main>
+        <form id="row1" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow1">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow1"> 
+            <input type="submit" hidden />
+        </form>
+        <form id="row2" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow2 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2 current-row">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow2 current-row">   
+            <input type="submit" hidden />
+        </form>
+        <form id="row3" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow3 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3 current-row">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow3 current-row">   
+            <input type="submit" hidden />
+        </form>
+        <form id="row4" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow4 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4 current-row">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow4 current-row">   
+            <input type="submit" hidden />
+        </form>
+        <form id="row5" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow5 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5 current-row">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow5 current-row">   
+            <input type="submit" hidden />
+        </form>
+        <form id="row6" class="input-row" onsubmit="submitRow(event, correctWord);">
+            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow6 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6 current-row">
+            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6 current-row">
+            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow6 current-row">  
+            <input type="submit" hidden /> 
+        </form>
+    </main>
+
+    <!-- Scripts -->
+    <script src="scripts/getRandomWord.js"></script>
+    <script src="scripts/onDelete.js"></script>
+    <script src="scripts/autoTab.js"></script>
+    <script src="scripts/switchRowFocus.js"></script>
+    <script src="scripts/submitRow.js"></script>
+    <script>
+        let correctWord;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            switchRowFocus(document.getElementById("row1"), false);
+            switchRowFocus(document.getElementById("row2"), true);
+            switchRowFocus(document.getElementById("row3"), true);
+            switchRowFocus(document.getElementById("row4"), true);
+            switchRowFocus(document.getElementById("row5"), true);
+            switchRowFocus(document.getElementById("row6"), true);
+            correctWord = getRandomWord();
+        }, false);
+    </script>
+
+</html>

@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+}
+
+:root {
+    --background-color: #6E5C62;
+    --text-color: #FAFAFF;
+    --input-empty-background: #615458;
+    --input-filled-background: #312A2C;
+    --input-selected-border: #4C4347;
+    --input-correct-letter-position-background: #3AA394;
+    --input-has-letter-background: #D3AD69;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+}
+
+input {
+    background-color: var(--input-empty-background);
+    color: var(--text-color);
+    caret-color: transparent;
+    border-radius: 16px;
+    
+    font-family: 'Nunito', sans-serif;
+    font-size: 64px;
+    line-height: 1em;
+    text-transform: uppercase;
+    text-align: center;
+
+    height: 100px;
+    width: 100px;
+
+    cursor: pointer;
+}
+
+input:focus {
+    border-bottom-width: 14px;
+}
+
+.current-row {
+    background-color: transparent;
+    border: 6px solid var(--input-selected-border);
+}
+
+.has-letter {
+    background-color: var(--input-has-letter-background);
+}
+
+.correct-position-letter {
+    background-color: var(--input-correct-letter-position-background);
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 8px;
+}
