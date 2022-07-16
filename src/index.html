@@ -19,66 +19,32 @@
 <body>
 
 </body>
-    <main>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow1 current-row">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1 current-row">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1 current-row">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow1 current-row">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow1 current-row"> 
-            <input type="submit" hidden />
-        </form>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow2">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow2">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow2">   
-            <input type="submit" hidden />
-        </form>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow3">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow3">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow3">   
-            <input type="submit" hidden />
-        </form>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow4">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow4">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow4">   
-            <input type="submit" hidden />
-        </form>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow5">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow5">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow5">   
-            <input type="submit" hidden />
-        </form>
-        <form class="input-row" onsubmit="submitRow(event, correctWord);">
-            <input type="text" maxlength="1" oninput="autoTab(this)" class="inputsRow6">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6">
-            <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="inputsRow6">
-            <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="inputsRow6">  
-            <input type="submit" hidden /> 
-        </form>
-    </main>
+        <main id="main">
+            <form class="input-row" onsubmit="submitRow(event, correctWord);">
+                <input type="text" maxlength="1" oninput="autoTab(this)" class="current-row">
+                <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="current-row">
+                <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="current-row">
+                <input type="text" maxlength="1" oninput="autoTab(this)" onkeydown="onDelete(this, event)" class="current-row">
+                <input type="text" maxlength="1" onkeydown="onDelete(this, event)" class="current-row"> 
+                <input type="submit" hidden />
+            </form>
+        </main>
 
     <!-- Scripts -->
+    <script src="scripts/switchRowFocus.js"></script>
+    <script src="scripts/setup.js"></script>
     <script src="scripts/getRandomWord.js"></script>
     <script src="scripts/validateWin.js"></script>
     <script src="scripts/onDelete.js"></script>
     <script src="scripts/combineLetters.js"></script>
     <script src="scripts/autoTab.js"></script>
-    <script src="scripts/switchRowFocus.js"></script>
     <script src="scripts/submitRow.js"></script>
     <script>
+        // Geração da tabela
+        let NUMBER_OF_ROWS = 6;
+        setup(NUMBER_OF_ROWS);
+
+        // Geração da palvra aleatória
         let correctWord;
 
         document.addEventListener('DOMContentLoaded', function() {
